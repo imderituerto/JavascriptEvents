@@ -1,7 +1,5 @@
 const button = document.querySelector("#enter");
 
-
-
 //method to add item 
 const addItem = (event) => {
 
@@ -27,7 +25,6 @@ const addItem = (event) => {
     const toDoList = document.querySelector("#list");
     toDoList.appendChild(toDoItem);
     toDoItem.appendChild(deleteButton);
-
 }
 
 //event
@@ -39,7 +36,16 @@ const deleteItem = (toDoItem) => {
     toDoList.removeChild(toDoItem);
 }
 
+//adding "show date" button
+const dateButton = document.querySelector("showDate");
 
-const showDate = (event) => {
-
+const Date = () => {
+    Date()
 }
+
+function showDate() {
+    const d = new Date();
+    d.getDate();
+}
+
+dateButton.addEventListener('click', showDate);
