@@ -1,6 +1,6 @@
 const button = document.querySelector("#enter");
 
-const deleteButton = document.createElement("button");
+
 
 //method to add item 
 const addItem = (event) => {
@@ -8,7 +8,16 @@ const addItem = (event) => {
     // console.dir(event.target.newText.value); 
 
     const toDoItem = document.createElement("li");
-    
+
+    // creating the button
+    const deleteButton = document.createElement("button");
+    // adding text to button
+    deleteButton.textContent = "delete";
+    // adding a class to button to edit in CSS
+    deleteButton.className = "delete-button";
+    // adding an event listener to button that calls the deleteItem function (below)
+    deleteButton.addEventListener('click', () => deleteItem (toDoItem))
+
     console.dir(event.target)
 
     const inputField = document.querySelector("#new-todo");
@@ -17,25 +26,20 @@ const addItem = (event) => {
 
     const toDoList = document.querySelector("#list");
     toDoList.appendChild(toDoItem);
-    // toDoItem.appendChild(deleteButton);
+    toDoItem.appendChild(deleteButton);
 
 }
 
 //event
 button.addEventListener('click', addItem);
 
-//method to delete item
-const deleteItem = (event) => {
-    if (deleteButton.onclick === "Delete") {
-    inputField.value.remove();
-  }
+//method to delete item - calling in the parameter to delete: toDoItem
+const deleteItem = (toDoItem) => {
+    const toDoList = document.querySelector("#list");
+    toDoList.removeChild(toDoItem);
 }
 
-deleteButton.removeEventListener("click", deleteItem);
 
-// function delt(event) {
-//     if (button.onclick === "Delete") {
-//     event.target.parentNode.remove();
-//   }
-// }
+const showDate = (event) => {
 
+}
